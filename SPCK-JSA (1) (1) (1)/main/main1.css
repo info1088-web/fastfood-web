@@ -1,0 +1,435 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+    --primary-color: #e99815;
+    --dark-bg: #121212;
+    --text-white: #ffffff;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+    color: var(--text-white);
+    min-height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: url('https://cdn.tgdd.vn/2020/12/content/Thuc-an-nhanh-la-gi-tac-hai-cua-thuc-an-nhanh-va-cac-loai-tot-cho-suc-khoe-2-800x533.jpg') no-repeat center center/cover;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.header {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.nav a {
+    color: var(--text-white);
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+.nav a:hover {
+    color: var(--primary-color);
+}
+
+.banner {
+    width: 100%;
+    height: 350px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+.banner-content {
+    position: absolute;
+    text-align: center;
+}
+
+.banner-content h1 {
+    font-size: 3rem;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.products {
+    padding: 50px 10%;
+}
+
+.products h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    transition: var(--transition);
+    animation: fadeIn 0.8s ease-out;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    border: 1px solid var(--primary-color);
+}
+
+.product-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.product-card h3 {
+    color: var(--text-white);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.product-card p.price {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.product-card button {
+    width: 100%;
+    padding: 10px;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(233, 152, 21, 0.3);
+}
+
+.product-card button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(233, 152, 21, 0.5);
+    filter: brightness(1.1);
+}
+
+/* .modal-content {
+    background: rgba(223, 139, 13, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(219, 157, 34, 0.767);
+    backdrop-filter: blur(20px);
+    width: 100%;
+    max-width: 450px;
+    margin: 5% auto;
+} */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.1); 
+    padding: 25px;
+    border-radius: 25px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.76);
+    width: 90%;
+    max-width: 400px;
+    margin: 10vh auto;
+    position: relative;
+    color: #fff;
+    display: table;
+    height: auto;
+}
+
+.modal-content h2 {
+    text-align: center;
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.price {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+#orderForm {
+    width: 100%;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+#orderForm input {
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 15px;
+    font-size: 15px;
+    color: #fff;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    outline: none;
+}
+
+#orderForm input:focus {
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.total {
+    text-align: center;
+    font-size: 1.1rem;
+    margin: 10px 0 20px 0;
+}
+
+.total span {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+#orderForm button {
+    width: 100%;
+    padding: 14px;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: block;
+    margin-bottom: 0; 
+}
+
+#orderForm button:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    opacity: 0.7;
+}
+
+.footer {
+  background: #111;
+  color: #aaa;
+  padding: 25px 0;
+  margin-top: 60px;
+}
+
+.footer-content {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: #aaa;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+copyright {
+  font-size: 14px;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.banner {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slider-container img {
+    min-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+.banner-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+}
+
+.banner-content h1 {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+/* ===================== */
+/* 📱 MOBILE (<= 768px) */
+/* ===================== */
+@media (max-width: 768px) {
+
+  .header {
+    padding: 15px 5%;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav a {
+    margin-left: 10px;
+    font-size: 13px;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .banner {
+    height: 260px;
+  }
+
+  .banner-content h1 {
+    font-size: 2rem;
+  }
+
+  .products {
+    padding: 30px 5%;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card {
+    padding: 20px;
+  }
+
+  .modal-content {
+    width: 95%;
+    margin: 12vh auto;
+    padding: 20px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-links {
+    justify-content: center;
+  }
+}
+
+
+/* ===================== */
+/* 📱 TABLET (769px – 1024px) */
+/* ===================== */
+@media (max-width: 1024px) {
+
+  .products {
+    padding: 40px 7%;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .banner-content h1 {
+    font-size: 2.6rem;
+  }
+}

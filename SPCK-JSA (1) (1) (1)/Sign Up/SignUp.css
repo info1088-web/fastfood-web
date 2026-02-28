@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+:root {
+    --primary-color: #e99815;
+    --dark-bg: #121212;
+    --text-white: #ffffff;
+    --transition: all 0.3s ease;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+    color: var(--text-white);
+    overflow-x: hidden;
+}
+.form-wrapper {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 450px;
+    margin: 20px;
+    animation: fadeIn 0.8s ease-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.form-control {
+    position: relative;
+    margin-bottom: 30px;
+    width: 100%;
+}
+.form-control input {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 16px;
+    color: #fff;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #555;
+    outline: none;
+    transition: var(--transition);
+}
+.form-control label {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    color: #999;
+    pointer-events: none;
+    transition: var(--transition);
+}
+.form-control input:focus ~ label,
+.form-control input:valid ~ label {
+    top: -15px;
+    left: 0;
+    color: var(--primary-color);
+    font-size: 13px;
+    font-weight: 600;
+}
+.form-control input:focus {
+    border-bottom: 2px solid var(--primary-color);
+}
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(233, 152, 21, 0.3);
+}
+button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(233, 152, 21, 0.5);
+    filter: brightness(1.1);
+}
+.form-help {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 13px;
+}
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+a:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+p {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 14px;
+    color: #bbb;
+}
+footer {
+    margin-top: 40px;
+    width: 100%;
+}
+.bottom-banner {
+    background: linear-gradient(90deg, transparent, rgba(233, 152, 21, 0.1), transparent);
+    padding: 30px;
+    text-align: center;
+    border-top: 1px solid rgba(233, 152, 21, 0.2);
+}
+.banner-text h2 {
+    font-size: 1.2rem;
+    color: var(--text-white);
+    margin-bottom: 5px;
+}
+.banner-text p {
+    margin-top: 5px;
+    color: var(--primary-color);
+}
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://cdn.tgdd.vn/2020/12/content/Thuc-an-nhanh-la-gi-tac-hai-cua-thuc-an-nhanh-va-cac-loai-tot-cho-suc-khoe-2-800x533.jpg') no-repeat center center/cover;
+    opacity: 0.3;
+    z-index: -1;
+}
+

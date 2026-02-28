@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Main</title>
+    <link rel="stylesheet" href="./main/main1.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a class="logo" href="">FastFood</a>
+      <nav class="nav">
+        <a href="#">Home</a>
+        <a
+          href="#"
+          onclick="
+            openAboutPopup();
+            return false;
+          "
+          >About</a
+        >
+        <a href="./htu-su.html">Guide</a>
+      </nav>
+    </header>
+
+    <!-- BANNER -->
+    <!-- <section class="banner">
+      <img
+        class="banner"
+        src="./main/img/fast-food-restaurant-banner-template_10587852.jpg!bwr800"
+        alt=""
+      /> -->
+
+    <div class="banner">
+      <div class="slider-container" id="slider">
+        <img
+          src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1350&q=80"
+          alt="Food 1"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1493770348161-369560ae357d?auto=format&fit=crop&w=1350&q=80"
+          alt="Food 2"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1350&q=80"
+          alt="Food 3"
+        />
+      </div>
+      <div class="banner-content">
+        <h1>Welcome to FastFood</h1>
+        <h1>>:D</h1>
+        <p>Đặt đi chờ chi ?</p>
+      </div>
+    </div>
+
+    <!-- <div class="banner-content">
+        <h1>>:D</h1>
+        <p>Đặt đi chờ chi</p>
+      </div> -->
+
+    <main>
+      <section class="products">
+        <h2 style="color: orange">Our Products</h2>
+        <div class="product-grid" id="productGrid">
+          <!-- Sản phẩm sẽ được đổ từ API vào đây -->
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p class="copyright">© 2026 FastFood Store. All rights reserved.</p>
+
+        <nav class="footer-links">
+          <a href="#" onclick="openAboutPopup()">Giới thiệu</a>
+          <a href="#products">Sản phẩm</a>
+        </nav>
+      </div>
+    </footer>
+
+    <!-- ORDER POPUP -->
+    <div id="orderModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeOrderPopup()">&times;</span>
+
+        <h2 id="productName">Tên món</h2>
+        <p class="price">Giá: <span id="productPrice"></span> đ</p>
+
+        <form id="orderForm">
+          <input type="text" placeholder="Tên của bạn" required />
+          <input type="email" placeholder="Email" required />
+          <input type="text" placeholder="Địa chỉ nhà" required />
+
+          <input type="number" id="quantity" min="1" value="1" />
+
+          <p class="total">
+            Tổng tiền: <b><span id="totalPrice"></span> đ</b>
+          </p>
+
+          <button type="submit">Xác nhận đặt hàng</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="aboutModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeAboutPopup()">&times;</span>
+
+        <h2>FastFood 🍔</h2>
+
+        <p>
+          FastFood là cửa hàng thức ăn nhanh hiện đại, mang đến những món ăn
+          nóng hổi, tiện lợi và đầy năng lượng cho cuộc sống bận rộn.
+        </p>
+
+        <ul class="about-list">
+          <li>⚡ Phục vụ nhanh – không để bạn chờ lâu</li>
+          <li>🍗 Nguyên liệu tươi, chế biến trong ngày</li>
+          <li>💰 Giá cả hợp lý, phù hợp học sinh – sinh viên</li>
+          <li>📦 Đặt hàng online tiện lợi</li>
+          <li>❤️ Hướng tới trải nghiệm khách hàng</li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="./main/modal.js"></script>
+    <script src="./main/main.js"></script>
+    <script>
+      (function () {
+        if (!window.chatbase || window.chatbase("getState") !== "initialized") {
+          window.chatbase = (...arguments) => {
+            if (!window.chatbase.q) {
+              window.chatbase.q = [];
+            }
+            window.chatbase.q.push(arguments);
+          };
+          window.chatbase = new Proxy(window.chatbase, {
+            get(target, prop) {
+              if (prop === "q") {
+                return target.q;
+              }
+              return (...args) => target(prop, ...args);
+            },
+          });
+        }
+        const onLoad = function () {
+          const script = document.createElement("script");
+          script.src = "https://www.chatbase.co/embed.min.js";
+          script.id = "tby1rEeoVXpF54f8TWP_4";
+          script.domain = "www.chatbase.co";
+          document.body.appendChild(script);
+        };
+        if (document.readyState === "complete") {
+          onLoad();
+        } else {
+          window.addEventListener("load", onLoad);
+        }
+      })();
+    </script>
+  </body>
+</html>

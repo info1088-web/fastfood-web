@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng ký</title>
+    <link rel="stylesheet" href="./Sign Up/SignUp.css" />
+    <link rel="icon" href="./img/ChatGPT Image 15_13_29 28 thg 1, 2026.png" />
+  </head>
+  <body>
+    <div class="form-wrapper">
+      <h2>Đăng ký</h2>
+      <form action="#">
+        <div class="form-control">
+          <input id="username" type="text" required />
+          <label>Username</label>
+        </div>
+        <div class="form-control">
+          <input id="email" type="text" required />
+          <label>Địa chỉ Email</label>
+          <script>
+            (function () {
+              if (
+                !window.chatbase ||
+                window.chatbase("getState") !== "initialized"
+              ) {
+                window.chatbase = (...arguments) => {
+                  if (!window.chatbase.q) {
+                    window.chatbase.q = [];
+                  }
+                  window.chatbase.q.push(arguments);
+                };
+                window.chatbase = new Proxy(window.chatbase, {
+                  get(target, prop) {
+                    if (prop === "q") {
+                      return target.q;
+                    }
+                    return (...args) => target(prop, ...args);
+                  },
+                });
+              }
+              const onLoad = function () {
+                const script = document.createElement("script");
+                script.src = "https://www.chatbase.co/embed.min.js";
+                script.id = "tby1rEeoVXpF54f8TWP_4";
+                script.domain = "www.chatbase.co";
+                document.body.appendChild(script);
+              };
+              if (document.readyState === "complete") {
+                onLoad();
+              } else {
+                window.addEventListener("load", onLoad);
+              }
+            })();
+          </script>
+        </div>
+        <div class="form-control">
+          <input id="password" type="password" required />
+          <label>Mật khẩu</label>
+        </div>
+        <button type="submit">Đăng ký</button>
+        <div class="form-help">
+          <!-- <div class="remember-me">
+            <input type="checkbox" id="remember-me" />
+            <label for="remember-me">Nhớ để đăng nhập nhanh</label>
+          </div> -->
+        </div>
+      </form>
+      <div class="p-row">
+        <p>Đã có tài khoản ? <a href="./SignIn.html">Đăng Nhập</a></p>
+      </div>
+    </div>
+    <script src="/Sign Up/SignUp.js"></script>
+
+    <footer>
+      <div class="bottom-banner">
+        <div class="banner-text">
+          <h2>Fast Food sạch sẽ - an toàn - chất lượng.</h2>
+          <p>Đặt đồ ăn hoặc mất acc Phở bò >:D</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
